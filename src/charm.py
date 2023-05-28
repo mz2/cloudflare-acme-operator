@@ -63,10 +63,14 @@ class CloudflareAcmeOperatorCharm(AcmeClient):
         additional_config = {
             # email required also as CLOUDFLARE_EMAIL or CF_API_EMAIL for whatever reason in case of the Cloudflare plugin,
             # see https://go-acme.github.io/lego/dns/cloudflare/
-            "CLOUDFLARE_EMAIL": self._email,
-            "CLOUDFLARE_API_KEY": self._cloudflare_api_key,
+            "CLOUDFLARE_EMAIL": self._email
         }
-
+        if self._cloudflare_api_key:
+            additional_config["CLOUDFLARE_API_KEY"] = self._cloudflare_api_key
+        if self._cloudflare_dns_api_token:
+            additional_config["CLOUDFLARE_DNS_API_TOKEN"] = self._cloudflare_dns_api_token
+        if self._cloudflare_zone_read_api_token:
+            additional_config["CLOUDFLARE_ZONE_API_TOKEN"] = self._cloudflare_zone_read_api_token
         if self._cloudflare_http_timeout:
             additional_config["CLOUDFLARE_HTTP_TIMEOUT"] = self._cloudflare_http_timeout
         if self._cloudflare_polling_interval:
