@@ -1,0 +1,29 @@
+options:
+  email:
+    type: string
+    description: Account email address
+  server:
+    type: string
+    description: Certificate authority server
+    default: "https://acme-v02.api.letsencrypt.org/directory"
+  cloudflare_api_key:
+    type: string
+    description: Cloudflare API Key. See https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-create-dns-record and https://go-acme.github.io/lego/dns/cloudflare/ for more info.
+  cloudflare_dns_api_token:
+    type: string
+    description: API token with DNS:Edit permission. See https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-create-dns-record and https://go-acme.github.io/lego/dns/cloudflare/ for more info.
+  cloudflare_zone_read_api_token:
+    type: string
+    description: API token with Zone:Read permission. See https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-create-dns-record and https://go-acme.github.io/lego/dns/cloudflare/ for more info.
+  cloudflare_http_timeout:
+    type: string
+    description: API request timeout (see https://go-acme.github.io/lego/dns/cloudflare/ for more information)
+  cloudflare_polling_interval:
+    type: string
+    description: Time between DNS propagation checks (see https://go-acme.github.io/lego/dns/cloudflare/ for more information)
+  cloudflare_propagation_timeout:
+    type: string
+    description: Maximum waiting time for DNS propagation (see https://go-acme.github.io/lego/dns/cloudflare/ for more information)
+  cloudflare_ttl:
+    type: string
+    description: The TTL of the TXT record used for the DNS challenge
